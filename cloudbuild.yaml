@@ -1,0 +1,17 @@
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/cloudbuild-demo-404217/cloudbuild-demo-repo/employee-db:latest', '.']
+
+  # Push the Docker image to Google Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/cloudbuild-demo-404217/cloudbuild-demo-repo/employee-db:latest']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args: ['run', 'deploy', 'employee-db2', '--image', 'us-central1-docker.pkg.dev/cloudbuild-demo-404217/cloudbuild-demo-repo/employee-db:latest', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+
+images:
+  - 'us-central1-docker.pkg.dev/cloudbuild-demo-404217/cloudbuild-demo-repo/employee-db:latest'
+
+
