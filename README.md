@@ -1,7 +1,7 @@
 #  Introduction
 
 
-# Assignment Configurationgit
+# Assignment Configurationg
 
 You will need to do a few things in order to complete this assignment. 
 
