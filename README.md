@@ -1,7 +1,7 @@
 #  Introduction
 
 
-# Assignment Configuration
+# Assignment Configurationgit
 
 You will need to do a few things in order to complete this assignment. 
 
@@ -31,5 +31,7 @@ gcloud iam service-accounts add-iam-policy-binding \
     --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com \
     --role=roles/iam.serviceAccountUser
 ```
-# 
+# Overview
+
+This is a sample employee database. It is not connected to a database. In this example, we use the [Faker](https://faker.readthedocs.io/en/master/) llibrary to mimic the employee data. 
 
