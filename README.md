@@ -1,5 +1,25 @@
 #  Introduction
+This is an example of a completed assignment for Unit 5 of the SDS course for Tech Exchange. 
 
+The application is a simple employee database. It is not connected to a database. The app uses the Faker library to mock employee data. 
+
+The app uses builds a docker container and deploys that container using Cloud Run. 
+
+You can see the live app here: [Employee DB](https://employee-db2-in5i5wkqaa-uc.a.run.app/). 
+
+The app also has a Cloud Build Trigger configured that deploys the app each time code is pushed to a 'staging' branch in a Github repo. 
+
+## Assignment Details and Ideas
+
+1. Supply the studetns with the wroking code and Dockerfile. The main focus should be on building the cloudbuild.yaml file. 
+
+2. Students should create the cloudbuild file that builds a container, saving it to artifact registry and then deploys to Cloud Run. Students can submit the link to the working application
+
+### Stretch Goal Ideas
+
+1. Students can create a trigger in Cloud Build that deploys the app when code is pushed to a repo. 
+
+2. Students can implement testing and use Github Actions to run tests when code is pushed to a repo. 
 
 # Assignment Configurationg
 
