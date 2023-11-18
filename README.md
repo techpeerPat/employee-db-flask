@@ -21,7 +21,7 @@ The app also has a Cloud Build Trigger configured that deploys the app each time
 
 2. Students can implement testing and use Github Actions to run tests when code is pushed to a repo. 
 
-# Assignment Configurationg
+# Assignment Configuration
 
 You will need to do a few things in order to complete this assignment. 
 
@@ -51,7 +51,5 @@ gcloud iam service-accounts add-iam-policy-binding \
     --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com \
     --role=roles/iam.serviceAccountUser
 ```
-# Overview
 
-This is a sample employee database. It is not connected to a database. In this example, we use the [Faker](https://faker.readthedocs.io/en/master/) llibrary to mimic the employee data. 
 
