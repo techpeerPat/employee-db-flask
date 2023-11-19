@@ -3,7 +3,7 @@ This is an example of a completed assignment for Unit 5 of the SDS course for Te
 
 The application is a simple employee database. It is not connected to a database. The app uses the Faker library to mock employee data. 
 
-The app uses builds a docker container and deploys that container using Cloud Run. 
+The app builds and deploys a docker container using Cloud Build. The container runs on Cloud Run. 
 
 You can see the live app here: [Employee DB](https://employee-db2-in5i5wkqaa-uc.a.run.app/). 
 
@@ -11,19 +11,19 @@ The app also has a Cloud Build Trigger configured that deploys the app each time
 
 ## Assignment Details and Ideas
 
-1. Supply the studetns with the wroking code and Dockerfile. The main focus should be on building the cloudbuild.yaml file. 
+1. Supply the students with the working code. The main focus should be on building then Dockerfile and the cloudbuild.yaml file. It may be easier to set up the CMD in the Dockerfile for students to avoid using gunicorn. 
 
-2. Students should create the cloudbuild file that builds a container, saving it to artifact registry and then deploys to Cloud Run. Students can submit the link to the working application
+2. Students should create the Cloudbuild file that builds a container, pushes the container to Artifact Registry and then deploys to Cloud Run. Students can submit the link to the working application. 
 
 ### Stretch Goal Ideas
 
 1. Students can create a trigger in Cloud Build that deploys the app when code is pushed to a repo. 
 
-2. Students can implement testing and use Github Actions to run tests when code is pushed to a repo. 
+2. Students can implement a CI/CD pipeline by creating tests and using Github Actions to run tests when code is pushed to a repo before the container is deployed. 
 
 # Assignment Configuration
 
-You will need to do a few things in order to complete this assignment. 
+Students will need to do a few things in order to complete this assignment succesfully. 
 
 1. Enable Cloud Build, Cloud Run and Artifact Registry services in Google Cloud Console. 
 
