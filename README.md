@@ -31,5 +31,35 @@ gcloud iam service-accounts add-iam-policy-binding \
     --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com \
     --role=roles/iam.serviceAccountUser
 ```
-# 
+# Building Your Containers
+
+Step 1: Create a Repository in your Artifact Registry. <br>
+**Note: You will need to use your project ID and specific region for this command. This is an example. We are creting a repo in us-west2 and calling the Repository "quickstart-docker-repo"**
+
+```
+gcloud artifacts repositories create quickstart-docker-repo --repository-format=docker \
+    --location=us-west2 --description="Docker repository"
+```
+
+Step 2: Verify that the Repository was created in Artifact Registry
+
+```
+gcloud artifacts repositories list
+```
+
+Step 3: Build your container using your config file: 
+
+Once you createt your cloudbuild.yaml file, you can test that it is configured correctly by using the following commmand or similar: 
+
+```
+gcloud builds submit --region=us-west2 --config cloudbuild.yaml
+```
+
+### Hints
+
+Use the following command in your terminal to find your proejct ID:
+
+```
+gcloud config get-value project
+```
 
