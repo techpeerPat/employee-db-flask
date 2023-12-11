@@ -1,9 +1,29 @@
 #  Introduction
+This is an example of a completed assignment for Unit 5 of the SDS course for Tech Exchange. 
 
+The application is a simple employee database. It is not connected to a database. The app uses the Faker library to mock employee data. 
+
+The app builds and deploys a docker container using Cloud Build. The container runs on Cloud Run. 
+
+You can see the live app here: [Employee DB](https://employee-db2-in5i5wkqaa-uc.a.run.app/). 
+
+The app also has a Cloud Build Trigger configured that deploys the app each time code is pushed to a 'staging' branch in a Github repo. 
+
+## Assignment Details and Ideas
+
+1. Supply the students with the working code. The main focus should be on building then Dockerfile and the cloudbuild.yaml file. It may be easier to set up the CMD in the Dockerfile for students to avoid using gunicorn. 
+
+2. Students should create the Cloudbuild file that builds a container, pushes the container to Artifact Registry and then deploys to Cloud Run. Students can submit the link to the working application. 
+
+### Stretch Goal Ideas
+
+1. Students can create a trigger in Cloud Build that deploys the app when code is pushed to a repo. 
+
+2. Students can implement a CI/CD pipeline by creating tests and using Github Actions to run tests when code is pushed to a repo before the container is deployed. 
 
 # Assignment Configuration
 
-You will need to do a few things in order to complete this assignment. 
+Students will need to do a few things in order to complete this assignment succesfully. 
 
 1. Enable Cloud Build, Cloud Run and Artifact Registry services in Google Cloud Console. 
 
@@ -31,5 +51,36 @@ gcloud iam service-accounts add-iam-policy-binding \
     --member=serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com \
     --role=roles/iam.serviceAccountUser
 ```
-# 
 
+## Building and running your app
+
+You will need the following commands to interact with Cloud Build:
+
+### Building Containers and Pushing to Artifact Registry
+Step 1: Setting up a Docker Repository in Artifact Registry
+**In this example we are deploying to us-west2 region. and repo name of "quickstart-docker-repo" Please update the region to your needs**
+
+Create a new Docker repository named quickstart-docker-repo in the location us-west2 with the description "Docker repository":
+```
+
+gcloud artifacts repositories create quickstart-docker-repo --repository-format=docker \
+    --location=us-west2 --description="Docker repository"
+
+```
+
+Step 2: Verify the Repository was created 
+
+```
+gcloud artifacts repositories list
+
+```
+
+### Build an image using your build config file
+
+After creating your cloudbuild.yaml file, use the following command to build use the config file: 
+
+```
+gcloud builds submit --region=us-west2 --config cloudbuild.yaml
+```
+
+**Make sure you are running this command in the root directory of your application!!!**
