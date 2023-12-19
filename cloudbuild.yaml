@@ -2,7 +2,7 @@ steps:
   # Install dependencies and Run Tests Before Building the Docker image
   - name: 'python:3.8-slim'
     entrypoint: 'bash'
-    args: ['-c', 'pip install -r requirements.txt && pytest']
+    args: ['-c', 'pip install pytest && pip install -r requirements.txt && pytest']
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'us-central1-docker.pkg.dev/cloudbuild-demo-404217/cloudbuild-demo-repo/employee-db:latest', '.']
